@@ -9,6 +9,25 @@ import { Producto } from '../components/Producto'
 const Nproductos = 6; 
 const Nombres = ["Nombre1", "Nombre2", "Nombre3", "Nombre4", "Nombre5", "Nombre6"];
 const Descripciones = ["Descripción ejemplo 1", "Descripción ejemplo 2", "Descripción ejemplo 3", "Descripción ejemplo 4", "Descripción ejemplo 5", "Descripción ejemplo 6"];
+const imagenes_Productos = [
+  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
+  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
+  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
+  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
+  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
+  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg'
+]
+
+const imagenes_Galeria = [
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
+  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'
+];
 
 export const home = () => {
   const productos = Array.from({ length: Nproductos }, (_, index) => (
@@ -16,6 +35,7 @@ export const home = () => {
       key={index}
       nombre={Nombres[index]}
       descripcion={Descripciones[index]}
+      imagen={imagenes_Productos[index]}
     />
   ));
 
@@ -25,12 +45,14 @@ export const home = () => {
           <nav className='nav1'>
             <BarraSuperior/>
           </nav>
-          <Galeria/>
+          <Galeria imagenes={imagenes_Galeria} />
         </header>
         <Separador/>
-        <div className='product-grid'>
-          {productos}
-        </div>
+        <section className='productos'>
+          <div className='product-grid'>
+            {productos}
+          </div>
+        </section>
     </div>
   )
 }

@@ -1,21 +1,14 @@
 import React from 'react'
 import './Galeria.css'
 
-export const Galeria = () => {
+export const Galeria = ({ imagenes }) => {
   return (
     <div>
-      <section>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
-        <img src='https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'></img>
+      <section className='Secgaleria'>
+        {imagenes.map((url, index) => (
+          <img key={index} src={url} alt={`Imagen ${index + 1}`} />
+        ))}
       </section>
     </div>
-    
   )
 }
