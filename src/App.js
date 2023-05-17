@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// Importar librerias
+import React, { useState } from 'react';
+import { Link, BrowserRouter } from 'react-router-dom';
+// Importar Css
+import './App.css'; // Ruta al archivo CSS
+// Importar Componentes
+import { Galeria } from './components/Galeria';
+import { BarraSuperior } from './components/BarraSuperior';
+import { Separador } from './components/Separador';
+import { Productos } from './components/Productos';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BarraSuperior/>
+      <Galeria/>
+      <Separador/>
+      <Productos/>
     </div>
   );
 }

@@ -1,0 +1,97 @@
+#logo-inicio{
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 40;
+  }
+  
+  #barrasuperior {
+    background-color: #000000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 75px;
+  }
+  
+  #barrasuperior div {
+    font-size: 20px;
+  }
+  
+  #barrasuperior nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  #barrasuperior nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  #barrasuperior nav ul li a:hover {
+    color: #15ff00;
+  }
+  
+  #barrasuperior {
+    font-family: 'Titillium Web';
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  #barrasuperior * {
+    box-sizing: border-box;
+    transition: all .35s ease;
+  }
+  
+  #barrasuperior li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: .5em 1em;
+  }
+  
+  #barrasuperior a {
+    padding: .5em .8em;
+    color: rgba(255,255,255,.5);
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  #barrasuperior a::before,
+  #barrasuperior a::after {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+  }
+  #barrasuperior a::before {
+    content: '';
+    right: 0;
+    top: 0;
+    border-top: 3px solid #3E8914;
+    border-right: 3px solid #2E640F;
+    transform: translate(-100%, 50%);
+  }
+  #barrasuperior a:after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid #2E640F;
+    border-left: 3px solid #3E8914;
+    transform: translate(100%, -50%)
+  }
+  
+  #barrasuperior a:hover:before,
+  #barrasuperior a:hover:after{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  
+  #barrasuperior a:hover {
+    color: #3DA35D;
+  }
+  
