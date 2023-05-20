@@ -5,6 +5,15 @@
 }
 
 section.productos{
+    margin-top: 20px;
+    margin-left: 12px;
+    margin-right: 5;
     display: flex;
-    width: 100%; 
+    width: 98%; 
 }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }

@@ -1,9 +1,4 @@
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  
+ 
   .product {
     position: relative;
     overflow: hidden;
@@ -27,11 +22,16 @@
     width: 100%;
     padding: 8px;
     background-color: #000;
-    color: #0f0;
+    color: rgb(77, 58, 255);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
   
   .product:hover .product-info {
     opacity: .9;
+  }
+
+  button.button-models{
+    background-color: transparent;
+    border:  transparent;
   }

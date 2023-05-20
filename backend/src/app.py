@@ -1,61 +1,35 @@
 from flask import Flask, request, jsonify
-from flask_pymongo import PyMongo, ObjectId
-from flask_cors import CORS
+from pymongo import MongoClient
 
 app = Flask(__name__)
-app.config['MONGO_URI'] = 'mongodb://localhost/pydriftcode'
-mongo = PyMongo(app)
+client = MongoClient('mongodb://localhost/pydriftcode')
+db = client.pydriftcode
 
-CORS(app)
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
 
-db = mongo.db.users
+    # Procesa los datos recibidos desde el componente de React
+    email = data['email']
+    password = data['password']
 
-@app.route('/users', methods=['POST'])
-def createUser():
-    data = {
-        'name': request.json['name'],
-        'email': request.json['email'],
-        'password': request.json['password']
-    }
-    result = db.insert_one(data)
-    inserted_id = str(result.inserted_id)
-    return jsonify(inserted_id)
+    # Verifica las credenciales del usuario en la base de datos
+    user = db.users.find_one({'email': email, 'password': password})
 
-@app.route('/users', methods=['GET'])
-def getUsers():
-    users = []
-    for doc in db.find():
-        users.append({
-            '_id': str(doc['_id']),
-            'name': doc['name'],
-            'email': doc['email'],
-            'password': doc['password']
-        })
-    return jsonify(users)
+    if user:
+        # Si las credenciales son válidas, devuelve una respuesta en formato JSON al componente de React
+        response = {
+            'status': 'success',
+            'message': 'Inicio de sesión exitoso.'
+        }
+    else:
+        # Si las credenciales no son válidas, devuelve una respuesta en formato JSON al componente de React
+        response = {
+            'status': 'error',
+            'message': 'Credenciales inválidas.'
+        }
 
-@app.route('/user/<id>', methods=['GET'])
-def getUser(id):
-    user = db.find_one({'_id': ObjectId(id)})
-    return jsonify({
-        'id': str(ObjectId(user['_id'])),
-        'name': user['name'],
-        'email': user['email'],
-        'password': user['password']
-    })
-
-@app.route('/users/<id>', methods=['DELETE'])
-def deleteUser(id):
-    db.delete_one({'_id': ObjectId(id)})
-    return jsonify({'msg': 'User Deleted'})
-
-@app.route('/users/<id>', methods=['PUT'])
-def updateUser(id):
-    db.update_one({'_id': ObjectId(id)}, {'$set': {
-        'name': request.json['name'],
-        'email': request.json['email'],
-        'password': request.json['password'] 
-    }})
-    return jsonify({'msg': 'User Updated'})
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(debug=True)

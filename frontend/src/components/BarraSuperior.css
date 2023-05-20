@@ -7,10 +7,11 @@
   #barrasuperior {
     background-color: #000000;
     height: 80px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 75px;
+    padding: 0 35px;
   }
   
   #barrasuperior div {
@@ -30,7 +31,7 @@
   }
   
   #barrasuperior nav ul li a:hover {
-    color: #15ff00;
+    color: rgb(77, 58, 255);
   }
   
   #barrasuperior {
@@ -48,7 +49,7 @@
   #barrasuperior li {
     display: inline-block;
     list-style: outside none none;
-    margin: .5em 1em;
+    margin: .5em 3em;
   }
   
   #barrasuperior a {
@@ -72,16 +73,16 @@
     content: '';
     right: 0;
     top: 0;
-    border-top: 3px solid #3E8914;
-    border-right: 3px solid #2E640F;
+    border-top: 3px solid rgb(77, 58, 255);
+    border-right: 3px solid #1c1d74;
     transform: translate(-100%, 50%);
   }
   #barrasuperior a:after {
     content: '';
     left: 0;
     bottom: 0;
-    border-bottom: 3px solid #2E640F;
-    border-left: 3px solid #3E8914;
+    border-bottom: 3px solid rgb(77, 58, 255);
+    border-left: 3px solid #1c1d74;
     transform: translate(100%, -50%)
   }
   
@@ -120,14 +121,14 @@
   .search-box button {
     width: 40px;
     height: 100%;
-    background-color: green;
+    background-color: rgb(46, 42, 102);
     border: none;
     outline: none;
     cursor: pointer;
   }
   
   .search-box button:hover {
-    background-color: lime;
+    background-color: rgb(77, 58, 255);
   }
   
   .search-box button:focus {
@@ -144,3 +145,50 @@
     border-radius: 50%;
     margin-left: 3px;
   }
+
+  #logo-inicio {
+    width: 200px; /* Modifica el valor del ancho según tus necesidades */
+    height: auto; /* Para mantener la proporción de aspecto */
+  }
+  .logo {
+    width: 100%; /* Para que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Para mantener la proporción de aspecto */
+  }
+
+  /* Estilos generales */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para resoluciones mayores a 1200px */
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 40px;
+  }
+}
+
+/* Estilos para resoluciones entre 768px y 1199px */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    padding: 30px;
+  }
+}
+
+/* Estilos para resoluciones menores a 768px */
+
+@media (max-width: 767px) {
+  .container {
+    padding: 20px;
+  }
+}

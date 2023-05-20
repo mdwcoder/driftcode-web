@@ -5,37 +5,35 @@ import { BarraSuperior } from '../components/BarraSuperior'
 import { Galeria } from '../components/Galeria'
 import { Separador } from '../components/Separador'
 import { Producto } from '../components/Producto'
+const galeriaContext = require.context('../materiales/coches_fotos', false, /\.(png|jpe?g|svg|JPG|jpg)$/);
+const galeriaimg = galeriaContext.keys().map(galeriaimg => galeriaContext(galeriaimg));
+const carpetaContext = require.context(
+  '../materiales/coches_piezas',
+  true,
+  /^\.\/(?!.*\.(svg|txt)).*$/
+);
+const modelosimg = carpetaContext.keys().map((ruta) => {
+  const imagen = carpetaContext(ruta);
+  return imagen.default || imagen;
+});
 
-const Nproductos = 6; 
-const Nombres = ["Nombre1", "Nombre2", "Nombre3", "Nombre4", "Nombre5", "Nombre6"];
-const Descripciones = ["Descripción ejemplo 1", "Descripción ejemplo 2", "Descripción ejemplo 3", "Descripción ejemplo 4", "Descripción ejemplo 5", "Descripción ejemplo 6"];
-const imagenes_Productos = [
-  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
-  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
-  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
-  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
-  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg',
-  'https://www.catalogomoda.com/fotos/sonajero-musical-babykey-miniland-baby-foto-347380.jpg'
-]
+const modelosname = carpetaContext.keys().map((ruta) => {
+  const carpetas = ruta.split('/');
+  const nombreImagen = carpetas[carpetas.length - 1].replace(/\.[^.]+$/, '');
+  return nombreImagen;
+});
 
-const imagenes_Galeria = [
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg',
-  'https://cocheselectricosparaninosconmando.es/wp-content/uploads/2021/06/coche-para-nina-rosa-coches-electricos-para-ninos-rosas.jpg'
-];
+const Nproductos = 5; 
+const Descripciones = ["", "", "", "", "", ""];
 
 export const home = () => {
   const productos = Array.from({ length: Nproductos }, (_, index) => (
     <Producto
       key={index}
-      nombre={Nombres[index]}
+      nombre={modelosname[index]}
       descripcion={Descripciones[index]}
-      imagen={imagenes_Productos[index]}
+      imagen={modelosimg[index]}
+      url={"/"+modelosname[index]}
     />
   ));
 
@@ -45,7 +43,7 @@ export const home = () => {
           <nav className='nav1'>
             <BarraSuperior/>
           </nav>
-          <Galeria imagenes={imagenes_Galeria} />
+          <Galeria imagenes={galeriaimg} />
         </header>
         <Separador/>
         <section className='productos'>

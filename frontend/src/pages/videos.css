@@ -1,0 +1,64 @@
+.videos-container {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .barra-superior {
+    background-color: rgb(77, 58, 255);
+    width: 100%;
+    height: 60px;
+  }
+  
+  .video-player {
+    margin-top: 60px;
+    width: 90%;
+    max-width: 1200px;
+    border: 2px solid rgb(77, 58, 255);
+    box-shadow: 0 0 10px rgb(77, 58, 255);
+    position: relative;
+  }
+  
+  video {
+    width: 100%;
+  }
+  
+  .arrow-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: rgb(77, 58, 255);
+    font-size: 40px;
+    cursor: pointer;
+  }
+  
+  .left-arrow {
+    left: 10px;
+  }
+  
+  .right-arrow {
+    right: 10px;
+  }
+  
+
+  .BarraSuperiorsT {
+    position: relative;
+  }
+  
+  .BarraSuperiorsT::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(77, 58, 255);
+    box-shadow: 0 0 5px rgb(77, 58, 255), 0 0 10px rgb(77, 58, 255), 0 0 20px rgb(77, 58, 255), 0 0 40px rgb(77, 58, 255); /* Efecto glow */
+    z-index: 1;
+  }
+  

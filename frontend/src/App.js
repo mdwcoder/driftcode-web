@@ -1,24 +1,39 @@
 // Importar librerias
-import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Importar Css
 import './App.css'; // Ruta al archivo CSS
 import { home } from './pages/home';
 import { shop } from './pages/shop';
 import { merch } from './pages/merch';
-import { videos } from './pages/videos';
-import { photos } from './pages/photos';
+import { Videos } from './pages/Videos';
+import { universal } from './pages/models_pages/universal';
+import MyAccount from './pages/acounts/myaccount';
+import { E30 } from './pages/models_pages/E30';
+import { E34 } from './pages/models_pages/E34';
+import { E36 } from './pages/models_pages/E36';
+import { E46 } from './pages/models_pages/E46';
+import signup from './pages/acounts/signup';
+import login from './pages/acounts/login'
 
 function App() {
   return (
     <BrowserRouter>
       <div>
         <Routes>
+          <Route path='/signup' Component={signup} />
+          <Route path='/login' Component={login} />
+
           <Route path="/" Component={home} />
           <Route path="/shop" Component={shop} />
           <Route path="/merch" Component={merch} />
-          <Route path="/videos" Component={videos} />
-          <Route path="/photos" Component={photos} />
+          <Route path="/videos" Component={Videos} />
+          <Route path="/myacount" Component={MyAccount} />
+
+          <Route path="/UNIVERSAL" Component={universal} />
+          <Route path="/E30" Component={E30} />
+          <Route path='/E34' Component={E34} />
+          <Route path='/E36' Component={E36} />
+          <Route path="/E46" Component={E46} />
         </Routes>
       </div>
     </BrowserRouter>

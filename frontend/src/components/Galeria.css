@@ -1,25 +1,32 @@
-section.Secgaleria {
+.Secgaleria {
   display: flex;
-  width: 100%; 
+  width: 100%;
   height: 600px;
   justify-content: center;
-  background-image: url('https://images3.alphacoders.com/106/thumb-1920-106425.jpg');
-  background-size: cover;
+  background-image: url('./materials/driftcodelogos.png');
+  background-size: contain;
   background-position: center;
 }
 
-  
-  section.Secgaleria img {
-    width: 150px;
-    object-fit: cover;
-    opacity: .9;
-    transition: width 0.3s;
-  }
-  
-  section.Secgaleria img:hover {
-    cursor: crosshair;
-    width: 500;
-    width: 60%;
-    opacity: 1;
-    filter: contrast(120%);
-  }
+.Secgaleria img {
+  width: 150px;
+  object-fit: cover;
+  opacity: 0.95;
+  transition: width 0.3s;
+}
+
+.Secgaleria img:hover {
+  cursor: crosshair;
+  width: 60%;
+  opacity: 1;
+  filter: contrast(120%);
+}
+
+.Secgaleria img.imagen-activa {
+  cursor: crosshair;
+  width: 60%;
+  opacity: 1;
+  filter: contrast(120%);
+  border-radius: 6px;
+  box-shadow: 0 0 10px 3px rgb(77, 58, 255);
+}
