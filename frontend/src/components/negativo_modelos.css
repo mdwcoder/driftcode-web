@@ -1,0 +1,116 @@
+.E30 {
+  position: relative;
+}
+
+.E30 .product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../materiales/coches_piezas/e30/E30.png");
+  background-size: cover;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.E30:hover .product-overlay {
+  opacity: 1;
+}
+
+
+.E36 {
+  position: relative;
+}
+
+.E36 .product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../materiales/coches_piezas/e36/E36.png");
+  background-size: cover;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.E36:hover .product-overlay {
+  opacity: 1;
+}
+
+
+.E46 {
+  position: relative;
+}
+
+.E46 .product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../materiales/coches_piezas/e46/E46.png");
+  background-size: cover;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.E46:hover .product-overlay {
+  opacity: 1;
+}
+
+
+.E34 {
+  position: relative;
+}
+
+.E34 .product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../materiales/coches_piezas/e34/E34.png");
+  background-size: cover;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.E34:hover .product-overlay {
+  opacity: 1;
+}
+
+
+.UNIVERSAL {
+  position: relative;
+}
+
+.UNIVERSAL .product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../materiales/coches_piezas/UNIVERSAL\ PARTS/UNIVERSAL.png");
+  background-size: cover;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.UNIVERSAL:hover .product-overlay {
+  opacity: 1;
+}
+
+.product-info{
+  background: transparent;
+}
+
+.product:hover .product-info {
+  opacity: 1;
+}

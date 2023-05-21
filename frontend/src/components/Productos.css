@@ -1,5 +1,22 @@
  
-  .product {
+   .product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    background-color: #000000;
+    color: rgb(0, 153, 255);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
+  
+  .product:hover .product-info {
+    opacity: .5;
+  }
+ 
+ .product {
     position: relative;
     overflow: hidden;
   }
@@ -12,26 +29,11 @@
   
   .product:hover img {
     cursor: pointer;
-    filter: brightness(1);
+    filter: brightness(0.8);
   }
   
-  .product-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 8px;
-    background-color: #000;
-    color: rgb(77, 58, 255);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .product:hover .product-info {
-    opacity: .9;
-  }
-
   button.button-models{
     background-color: transparent;
     border:  transparent;
   }
+

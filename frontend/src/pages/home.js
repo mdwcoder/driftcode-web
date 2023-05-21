@@ -5,12 +5,12 @@ import { BarraSuperior } from '../components/BarraSuperior'
 import { Galeria } from '../components/Galeria'
 import { Separador } from '../components/Separador'
 import { Producto } from '../components/Producto'
-const galeriaContext = require.context('../materiales/coches_fotos', false, /\.(png|jpe?g|svg|JPG|jpg)$/);
+const galeriaContext = require.context('../materiales/coches_fotos', false, /\.(jpe?g|JPG|jpg)$/);
 const galeriaimg = galeriaContext.keys().map(galeriaimg => galeriaContext(galeriaimg));
 const carpetaContext = require.context(
   '../materiales/coches_piezas',
   true,
-  /^\.\/(?!.*\.(svg|txt)).*$/
+  /^\.\/(?!.*\.(svg|txt|png)).*$/
 );
 const modelosimg = carpetaContext.keys().map((ruta) => {
   const imagen = carpetaContext(ruta);
