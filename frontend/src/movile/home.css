@@ -1,0 +1,176 @@
+body{
+  background-color: #000;
+}
+
+.root {
+  position: relative;
+  width: 430px;
+  height: 2253px;
+  align-items: flex-start;
+  background-color: #000;
+  overflow: hidden;
+}
+.galeriaAutomatica {
+  position: absolute;
+  left: 0;
+  top: 72px;
+  width: 430px;
+  height: 570px;
+  background-color: #8b8794;
+}
+.barraNegra {
+  position: absolute;
+  left: 35px;
+  top: 72px;
+  width: 100%;
+  height: 57px;
+  border-radius: 20px;
+  background-color: #0000008c;
+}
+.driftcodelogos1 {
+  position: absolute;
+  left: 49px;
+  top: 72px;
+  width: 311px;
+  height: 57px;
+  background-image:/* webpackIgnore: true */ url('/assets/driftcodelogos1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.botonFlechaGaleriaI {
+  position: absolute;
+  left: 24px;
+  top: 301px;
+  width: 43px;
+  height: 43px;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.botonFlechaGaleriaD {
+  position: absolute;
+  left: 370px;
+  top: 301px;
+  width: 43px;
+  height: 43px;
+  overflow: visible;
+}
+.icon2 {
+  width: 100%;
+  height: 100%;
+}
+.barraSuperiorBarraNegra {
+  position: absolute;
+  left: -15px;
+  top: 0;
+  width: 480px;
+  height: 72px;
+  background-color: #000;
+}
+.rectangle12 {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+  width: 85px;
+  height: 38px;
+  border-radius: 20px;
+  background-color: #324072;
+}
+.home {
+  color: #fff;
+  font-size: 24px;
+  font-family: Javanese Text, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 20px;
+  top: 23px;
+  width: 85px;
+  height: 38px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rectangle11 {
+  position: absolute;
+  left: 121px;
+  top: 17px;
+  width: 85px;
+  height: 38px;
+  border-radius: 20px;
+  background-color: #324072;
+}
+.merch {
+  color: #fff;
+  font-size: 24px;
+  font-family: Javanese Text, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 121px;
+  top: 20px;
+  width: 85px;
+  height: 38px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rectangle10 {
+  position: absolute;
+  left: 222px;
+  top: 17px;
+  width: 85px;
+  height: 38px;
+  border-radius: 20px;
+  background-color: #324072;
+}
+.videos {
+  color: #fff;
+  font-size: 24px;
+  font-family: Javanese Text, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 222px;
+  top: 23px;
+  width: 85px;
+  height: 38px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rectangle9 {
+  position: absolute;
+  left: 323px;
+  top: 17px;
+  width: 85px;
+  height: 38px;
+  border-radius: 20px;
+  background-color: #324072;
+}
+.login {
+  color: #fff;
+  font-size: 24px;
+  font-family: Javanese Text, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 323px;
+  top: 23px;
+  width: 85px;
+  height: 38px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.espacio_productos {
+  position: absolute;
+  left: 53px;
+  top: 691px;
+  width: 323px;
+  height: 1491px;
+  background-color: #838383;
+}
