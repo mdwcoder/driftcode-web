@@ -23,8 +23,7 @@ export const BarraSuperior = () => {
           <li><Link to="/merch">Merch</Link></li>
           <li><Link to="/videos">Videos</Link></li>
           <li><Link to="/myacount">Acount</Link></li>
-          <li className='acount_button'><Link to="/login">Log in</Link></li>
-          <li className='acount_button'><Link to="/signup">Sign up</Link></li>
+
         </ul>
       </nav>
     </header>

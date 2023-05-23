@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Productos.css'
-import './negativo_modelos.css'
 
 export const Producto = ({ nombre, descripcion, imagen, url }) => {
   return (

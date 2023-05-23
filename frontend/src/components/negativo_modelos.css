@@ -103,14 +103,56 @@
   transition: opacity 0.5s ease;
 }
 
+ 
+.modelname {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background-color: transparent;
+  color: rgb(0, 153, 255);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.product1:hover .modelname {
+  opacity: 1;
+}
+
+.product1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.product1 img {
+  width: 100%;
+  filter: brightness(0.5);
+  transition: filter 0.3s ease;
+}
+
+.product1:hover img {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+button.button-models{
+  background-color: transparent;
+  border:  transparent;
+}
+
+
+
 .UNIVERSAL:hover .product-overlay {
   opacity: 1;
 }
 
-.product-info{
+.modelname{
   background: transparent;
 }
 
 .product:hover .product-info {
   opacity: 1;
 }
+

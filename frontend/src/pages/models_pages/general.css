@@ -1,0 +1,47 @@
+.shop{
+    margin-top: 10%;
+}
+.NeonSquare{
+    margin-top: 3%;
+}
+ 
+.shop-page .product-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background-color: #000000;
+  color: rgb(0, 153, 255);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.shop-page .product:hover .product-info {
+  opacity: 1;
+}
+
+.shop-page .product {
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-page .product img {
+  width: 100%;
+  filter: brightness(0.5);
+  transition: filter 0.3s ease;
+}
+
+.shop-page .product:hover img {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+.shop-page button.button-models{
+  background-color: transparent;
+  border:  transparent;
+}
+
+
+

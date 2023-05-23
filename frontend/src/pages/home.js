@@ -1,10 +1,11 @@
 import React from 'react'
 import './home.css'
-import '../components/Productos.css'
+import '../components/negativo_modelos.css'
+import './productgrid.css'
 import { BarraSuperior } from '../components/BarraSuperior'
 import { Galeria } from '../components/Galeria'
 import { Separador } from '../components/Separador'
-import { Producto } from '../components/Producto'
+import Modelos from '../components/Modelos'
 const galeriaContext = require.context('../materiales/coches_fotos', false, /\.(jpe?g|JPG|jpg)$/);
 const galeriaimg = galeriaContext.keys().map(galeriaimg => galeriaContext(galeriaimg));
 const carpetaContext = require.context(
@@ -23,12 +24,12 @@ const modelosname = carpetaContext.keys().map((ruta) => {
   return nombreImagen;
 });
 
-const Nproductos = 5; 
+const Nproductos = modelosname.length; 
 const Descripciones = ["", "", "", "", "", ""];
 
 export const home = () => {
   const productos = Array.from({ length: Nproductos }, (_, index) => (
-    <Producto
+    <Modelos
       key={index}
       nombre={modelosname[index]}
       descripcion={Descripciones[index]}

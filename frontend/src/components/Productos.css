@@ -1,5 +1,5 @@
  
-   .product-info {
+   .product-info1 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -12,8 +12,8 @@
     z-index: 10;
   }
   
-  .product:hover .product-info {
-    opacity: .5;
+  .product:hover .product-info1 {
+    opacity: 100%;
   }
  
  .product {
