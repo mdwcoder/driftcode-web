@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import '../../pages/videos.css';
 import './adaptadorGaleria.css'
 
-const galeriaContext = require.context('../../materiales/coches_fotos/', false, /\.(txt|jpeg|png|gif)$/);
+const galeriaContext = require.context('../../materiales/coches_fotos/', false, /\.(txt|jpg|jpeg|png|gif)$/);
 const galeriaImagenes = galeriaContext.keys().map((galeriaImagen) => galeriaContext(galeriaImagen));
 
-const Nlimite = 10;
+const Nlimite = galeriaImagenes.length;
 
 export const Galeria = () => {
   const [index, setIndex] = useState(0);

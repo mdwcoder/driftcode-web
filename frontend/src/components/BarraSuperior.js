@@ -16,14 +16,13 @@ export const BarraSuperior = () => {
       <input type="text" placeholder="Search"/>
       <button></button>
     </div>
-    <header>
+    <header className='nava'>
       <nav>
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to="/merch">Merch</Link></li>
           <li><Link to="/videos">Videos</Link></li>
           <li><Link to="/myacount">Acount</Link></li>
-
         </ul>
       </nav>
     </header>

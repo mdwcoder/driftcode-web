@@ -25,14 +25,12 @@ const modelosname = carpetaContext.keys().map((ruta) => {
 });
 
 const Nproductos = modelosname.length; 
-const Descripciones = ["", "", "", "", "", ""];
 
 export const home = () => {
   const productos = Array.from({ length: Nproductos }, (_, index) => (
     <Modelos
       key={index}
       nombre={modelosname[index]}
-      descripcion={Descripciones[index]}
       imagen={modelosimg[index]}
       url={"/"+modelosname[index]}
     />

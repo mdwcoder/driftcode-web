@@ -5,7 +5,7 @@ import './videos.css';
 const galeriaContext = require.context('../materiales/videos', false, /\.(mp4|webm|ogv)$/);
 const galeriavideos = galeriaContext.keys().map(galeriavideos => galeriaContext(galeriavideos));
 
-const Nlimite = 10;
+const Nlimite = galeriavideos.length;
 
 export const Videos = () => {
   const [index, setIndex] = useState(0);

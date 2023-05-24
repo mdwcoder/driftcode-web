@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './Galeria.css';
 
 export const Galeria = ({ imagenes }) => {
-  const [imagenActiva, setImagenActiva] = useState(null);
+  const medio = Math.round(imagenes.length / 2);
+  const [imagenActiva, setImagenActiva] = useState(medio); // Definir la primera imagen como activa por defecto
 
   const handleMouseEnter = (index) => {
     setImagenActiva(index);
@@ -21,7 +22,6 @@ export const Galeria = ({ imagenes }) => {
           />
         ))}
       </section>
-
     </div>
   );
 };

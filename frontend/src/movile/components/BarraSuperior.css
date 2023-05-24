@@ -1,235 +1,234 @@
 #logo-inicio {
-    text-decoration: none;
-    color: #ffffff;
-    margin-right: 40;
-  }
-  
-  #barrasuperior {
-    background-color: #000000;
-    height: 80px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 35px;
-  }
-  
-  #barrasuperior div {
-    font-size: 20px;
-  }
-  
-  #barrasuperior nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  #barrasuperior nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-  }
-  
-  #barrasuperior nav ul li a:hover {
-    color: rgb(77, 58, 255);
-  }
-  
-  #barrasuperior {
-    font-family: 'Titillium Web';
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 600;
-  }
-  
-  #barrasuperior * {
-    box-sizing: border-box;
-    transition: all .35s ease;
-  }
-  
-  #barrasuperior li {
-    display: inline-block;
-    list-style: outside none none;
-    margin: .5em 3em;
-  }
-  
-  #barrasuperior a {
-    padding: .5em .8em;
-    color: rgba(255, 255, 255, .5);
-    position: relative;
-    text-decoration: none;
-    font-size: 20px;
-  }
-  
-  #barrasuperior a::before,
-  #barrasuperior a::after {
-    content: '';
-    height: 14px;
-    width: 14px;
-    position: absolute;
-    transition: all .35s ease;
-    opacity: 0;
-  }
-  
-  #barrasuperior a::before {
-    content: '';
-    right: 0;
-    top: 0;
-    border-top: 3px solid rgb(77, 58, 255);
-    border-right: 3px solid #1c1d74;
-    transform: translate(-100%, 50%);
-  }
-  
-  #barrasuperior a:after {
-    content: '';
-    left: 0;
-    bottom: 0;
-    border-bottom: 3px solid rgb(77, 58, 255);
-    border-left: 3px solid #1c1d74;
-    transform: translate(100%, -50%);
-  }
-  
-  #barrasuperior a:hover:before,
-  #barrasuperior a:hover:after {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-  
-  #barrasuperior a:hover {
-    color: #3DA35D;
-  }
-  
-  .search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 300px;
-    height: 40px;
-    background-color: black;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  
-  .search-box input[type="text"] {
-    flex: 1;
-    height: 100%;
-    padding: 10px;
-    background-color: rgb(48, 48, 48);
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 16px;
-  }
-  
-  .search-box button {
-    width: 40px;
-    height: 100%;
-    background-color: rgb(46, 42, 102);
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .search-box button:hover {
-    background-color: rgb(77, 58, 255);
-  }
-  
-  .search-box button:focus {
-    outline: none;
-  }
-  
-  .search-box button::before {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
-    margin: 15px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 50%;
-    margin-left: 3px;
-  }
-  
-  #logo-inicio {
-    width: 250px;
-    height: auto;
-  }
-  
-  .logo {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Estilos generales */
-  
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 40px;
+}
+
+#barrasuperior {
+  background-color: #000000;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px;
+}
+
+#barrasuperior div {
+  font-size: 20px;
+}
+
+#barrasuperior nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#barrasuperior nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#barrasuperior nav ul li a:hover {
+  color: rgb(77, 58, 255);
+}
+
+#barrasuperior {
+  font-family: 'Titillium Web';
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+}
+
+#barrasuperior * {
+  box-sizing: border-box;
+  transition: all .35s ease;
+}
+
+#barrasuperior li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: .5em 3em;
+}
+
+#barrasuperior a {
+  padding: .5em .8em;
+  color: rgba(255, 255, 255, .5);
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#barrasuperior a::before,
+#barrasuperior a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+
+#barrasuperior a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid rgb(77, 58, 255);
+  border-right: 3px solid #1c1d74;
+  transform: translate(-100%, 50%);
+}
+
+#barrasuperior a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid rgb(77, 58, 255);
+  border-left: 3px solid #1c1d74;
+  transform: translate(100%, -50%);
+}
+
+#barrasuperior a:hover:before,
+#barrasuperior a:hover:after {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+#barrasuperior a:hover {
+  color: #3DA35D;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  background-color: black;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.search-box input[type="text"] {
+  flex: 1;
+  height: 100%;
+  padding: 10px;
+  background-color: rgb(48, 48, 48);
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+}
+
+.search-box button {
+  width: 40px;
+  height: 100%;
+  background-color: rgb(46, 42, 102);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: rgb(77, 58, 255);
+}
+
+.search-box button:focus {
+  outline: none;
+}
+
+.search-box button::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 15px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  margin-left: 3px;
+}
+
+#logo-inicio {
+  width: 250px;
+  height: auto;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+/* Estilos generales */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para resoluciones mayores a 1200px */
+
+@media (min-width: 1200px) {
   .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 40px;
+  }
+}
+
+/* Estilos para resoluciones entre 768px y 1199px */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    padding: 30px;
+  }
+}
+
+/* Estilos para resoluciones menores a 768px */
+
+@media (max-width: 767px) {
+  #logo-inicio {
+    margin-right: 20px;
+  }
+
+  #barrasuperior {
+    height: auto;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     padding: 20px;
   }
-  
-  /* Estilos para resoluciones mayores a 1200px */
-  
-  @media (min-width: 1200px) {
-    .container {
-      padding: 40px;
-    }
+
+  #barrasuperior div {
+    font-size: 16px;
   }
-  
-  /* Estilos para resoluciones entre 768px y 1199px */
-  
-  @media (min-width: 768px) and (max-width: 1199px) {
-    .container {
-      padding: 30px;
-    }
+
+  #barrasuperior nav ul {
+    flex-direction: row;
+    gap: 10px;
   }
-  
-  /* Estilos para resoluciones menores a 768px */
-  
-  @media (max-width: 767px) {
-    #logo-inicio {
-      margin-right: 20px;
-    }
-  
-    #barrasuperior {
-      height: auto;
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      padding: 20px;
-    }
-  
-    #barrasuperior div {
-      font-size: 16px;
-    }
-  
-    #barrasuperior nav ul {
-      flex-direction: row;
-      gap: 10px;
-    }
-  
-    #barrasuperior li {
-      display: inline-block;
-      margin: .5em;
-    }
-  
-    #barrasuperior a {
-      font-size: 16px;
-      padding: .5em .8em;
-    }
-  
-    .search-box {
-      width: 100%;
-      margin-top: 0px;
-    }
-  
-    .search-box input[type="text"] {
-      width: 100%;
-    }
+
+  #barrasuperior li {
+    display: inline-block;
+    margin: .0em;
   }
-  
+
+  #barrasuperior a {
+    font-size: 70%;
+    padding: .5em .8em;
+  }
+
+  .search-box {
+    width: 100%;
+    margin-top: 0px;
+  }
+
+  .search-box input[type="text"] {
+    width: 100%;
+  }
+}

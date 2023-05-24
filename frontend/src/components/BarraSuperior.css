@@ -6,7 +6,7 @@
   
   #barrasuperior {
     background-color: #000000;
-    height: 80px;
+    height: 100px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@
   #barrasuperior li {
     display: inline-block;
     list-style: outside none none;
-    margin: .5em 3em;
+    margin: .5em 2em;
   }
   
   #barrasuperior a {
@@ -57,7 +57,7 @@
     color: rgba(255,255,255,.5);
     position: relative;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 170%;
   }
   
   #barrasuperior a::before,
@@ -100,10 +100,10 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: 300px;
-    height: 40px;
+    width: 20%;
+    height: 65%;
     background-color: black;
-    border-radius: 20px;
+    border-radius: 25px;
     overflow: hidden;
   }
   
@@ -119,7 +119,8 @@
   }
   
   .search-box button {
-    width: 40px;
+    width: 10%;
+    min-width: 30px;
     height: 100%;
     background-color: rgb(46, 42, 102);
     border: none;
@@ -147,7 +148,7 @@
   }
 
   #logo-inicio {
-    width: 200px; /* Modifica el valor del ancho según tus necesidades */
+    width: 35%; /* Modifica el valor del ancho según tus necesidades */
     height: auto; /* Para mantener la proporción de aspecto */
   }
   .logo {
@@ -164,7 +165,6 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -191,4 +191,8 @@ body {
   .container {
     padding: 20px;
   }
+}
+
+.nava{
+  margin-right:2%;
 }
