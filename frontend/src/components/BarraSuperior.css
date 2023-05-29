@@ -49,7 +49,7 @@
   #barrasuperior li {
     display: inline-block;
     list-style: outside none none;
-    margin: .5em 2em;
+    margin: .6em 2em;
   }
   
   #barrasuperior a {
@@ -57,7 +57,7 @@
     color: rgba(255,255,255,.5);
     position: relative;
     text-decoration: none;
-    font-size: 170%;
+    font-size: 150%;
   }
   
   #barrasuperior a::before,
@@ -89,7 +89,7 @@
   #barrasuperior a:hover:before,
   #barrasuperior a:hover:after{
     transform: translate(0,0);
-    opacity: 1;
+    opacity: 0;
   }
   
   #barrasuperior a:hover {
@@ -101,7 +101,7 @@
     display: flex;
     align-items: center;
     width: 20%;
-    height: 65%;
+    height: 55%;
     background-color: black;
     border-radius: 25px;
     overflow: hidden;

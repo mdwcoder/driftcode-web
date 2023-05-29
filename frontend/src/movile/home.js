@@ -25,12 +25,14 @@ const Nproductos = modelosname.length;
 
 export const home = () => {
   const productos = Array.from({ length: Nproductos }, (_, index) => (
-    <Modelos
+    <div className='modelo_individual'>
+      <Modelos
       key={index}
       nombre={modelosname[index]}
       imagen={modelosimg[index]}
       url={"/"+modelosname[index]}
     />
+    </div>
   ));
 
   return (

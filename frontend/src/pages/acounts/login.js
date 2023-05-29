@@ -11,7 +11,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/login', { email, password });
+      const response = await axios.post('http://127.0.0.1:5000/api/login', { email, password });
       setMessage(response.data.message);
     } catch (error) {
       setMessage('Error al iniciar sesión');

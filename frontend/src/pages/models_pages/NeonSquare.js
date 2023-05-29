@@ -8,8 +8,8 @@ const Square = styled.div`
   color: #9ff;
   font-size: 24px;
   font-weight: bold;
-  height: 100px;
-  width: 35%;
+  height: 90px;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@ const Square = styled.div`
 
 const NeonSquare = ({ name }) => {
   return (
-    <Square>
+    <Square className='neonsq'>
       {name}
     </Square>
   );

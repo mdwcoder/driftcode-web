@@ -25,7 +25,7 @@ const modelosname = carpetaContext.keys().map((ruta) => {
 });
 
 const Nproductos = modelosname.length; 
-// test 
+
 export const home = () => {
   const productos = Array.from({ length: Nproductos }, (_, index) => (
     <Modelos

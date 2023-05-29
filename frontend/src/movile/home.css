@@ -174,3 +174,28 @@ body{
   height: 1491px;
   background-color: #838383;
 }
+
+.videos-container {
+  background-color: black;
+  color: white;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-arrow{
+  color: rgb(77, 58, 255); 
+}
+
+.right-arrow{
+  color: rgb(77, 58, 255); 
+}
+
+.modelo_individual{
+  margin-top: 2%;
+}
+.productoaaaaa{
+  margin: auto;
+  width: 95%;
+}

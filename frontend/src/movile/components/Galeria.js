@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import '../../pages/videos.css';
 import './adaptadorGaleria.css'
 
-const galeriaContext = require.context('../../materiales/coches_fotos/', false, /\.(txt|jpg|jpeg|png|gif)$/);
+const galeriaContext = require.context('../../materiales/coches_fotos/', false, /\.(jpe?g|JPG|jpg)$/);
 const galeriaImagenes = galeriaContext.keys().map((galeriaImagen) => galeriaContext(galeriaImagen));
 
-const Nlimite = galeriaImagenes.length;
+const Nlimite = galeriaImagenes.length -1;
 
 export const Galeria = () => {
   const [index, setIndex] = useState(0);
@@ -39,8 +39,6 @@ export const Galeria = () => {
           </button>
         </div>
         <div className="video-info">
-          <h2>Título de la imagen</h2>
-          <p>Descripción de la imagen</p>
         </div>
       </div>
     </div>
