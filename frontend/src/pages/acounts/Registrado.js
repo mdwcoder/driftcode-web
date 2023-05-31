@@ -7,12 +7,13 @@ import ImageUploader from "../../components/ImageUploader";
 import ImagesUploader from "../../components/ImagesUploader";
 
 export const Registrado = () => {
-  const { isAdmin, actualUser, logout, mainImage, secondariImages } = useContext(AuthContext);
+  const { isAdmin, actualUser, logout, mainImage, secondariImages} = useContext(AuthContext);
   const [send_name, setName] = useState("");
   const [send_price, setPrice] = useState("");
   const [send_description, setDescription] = useState("");
   const [send_features, setFeatures] = useState("");
   const [send_section, setSection] = useState("");
+  const [lista_usuarios, setListaUsers] = useState([]);
 
   const createProduct = async () => {
     try {
@@ -31,6 +32,19 @@ export const Registrado = () => {
       console.error("Error al crear el producto:", error);
     }
   };
+
+  const eliminarUsuario = async () => {
+    const response = await axios.post("http://127.0.0.1:5000/api/user/erase", {
+        'username': actualUser,
+      });
+    console.log("Respuesta del servidor:", response.data);
+    logout();
+  };
+
+  const obtener_todos_los_usuarios = async () => {
+    const response = await axios.get("http://127.0.0.1:5000/api/users/all");
+    setListaUsers(response.data);
+  }
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -85,6 +99,10 @@ export const Registrado = () => {
     setActualForm('createproduct');
   }
 
+  const gestion_usuarios_fn = () => {
+    obtener_todos_los_usuarios();
+    setActualForm('gestionusuarios');
+  }
 
   if (isAdmin) {
     name_admin = "Administrador";
@@ -163,9 +181,9 @@ export const Registrado = () => {
       <h2 className="title-myaccount-mensaje quien-eres">Ajustes de cuenta</h2>
       <div className="button-account-grid">
         <button onClick={None} className="button-account ajustes-cuenta">
-          Cambiar Usuario
+          Personalizar cuenta
         </button>
-        <button onClick={None} className="button-account ajustes-cuenta">
+        <button onClick={eliminarUsuario} className="button-account ajustes-cuenta">
           Eliminar cuenta
         </button>
       </div>
@@ -180,7 +198,7 @@ export const Registrado = () => {
         <button onClick={create_product_fn} className="button-account admin-second">
           Añadir producto
         </button>
-        <button onClick={None} className="button-account admin-second">
+        <button onClick={gestion_usuarios_fn} className="button-account admin-second">
           Gestión de usuarios
         </button>
         <button onClick={None} className="button-account admin-second">
@@ -228,6 +246,25 @@ export const Registrado = () => {
     </div>
   );
 
+  const administracion_usuarios = (
+    <div>
+      <h2 className="title-myaccount-mensaje quien-eres">Gestión de usuarios</h2>
+      <div className="button-image-upload">
+        <input className="nombre_usuario_input" placeholder="Nombre de usuario"/>
+        <select>
+          <option>Eliminar</option>
+          <option>Banear</option>
+          <option>Degradar a usuario</option>
+          <option>Ascender a administrador</option>
+        </select>
+      </div>
+      <div className="button-account-grid">
+        <button className="button-account admin-second">Ejecutar</button>
+        {getback_button}
+      </div>
+    </div>
+  );
+
   let renderedForm;
 
   switch (actualform) {
@@ -248,6 +285,9 @@ export const Registrado = () => {
       break;
     case 'createproduct':
       renderedForm = create_product;
+      break;
+    case 'gestionusuarios':
+      renderedForm = administracion_usuarios;
       break;
     default:
       renderedForm = mainform;

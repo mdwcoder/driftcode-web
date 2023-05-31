@@ -155,6 +155,60 @@ def registro():
     return 'Datos recibidos'
 
 
+@app.route('/api/user/update', methods=['POST'])
+def update_user():
+    data = request.json
+    tipo = data.get('tipo')
+    dato_nuevo = data.get('dato_nuevo')
+    usuario = data.get('usuario')
+
+    # Verificar si el usuario existe
+    existing_user = find_user(usuario)
+    if not existing_user:
+        return jsonify({'message': 'Usuario no encontrado'})
+
+    # Modificar el campo correspondiente del usuario
+    conn = get_db_connection('users.db')
+    c = conn.cursor()
+    if tipo == 'user':
+        c.execute("UPDATE users SET user = ? WHERE user = ?",
+                  (dato_nuevo, usuario))
+    elif tipo == 'email':
+        c.execute("UPDATE users SET email = ? WHERE user = ?",
+                  (dato_nuevo, usuario))
+    elif tipo == 'password':
+        c.execute("UPDATE users SET password = ? WHERE user = ?",
+                  (dato_nuevo, usuario))
+    else:
+        return jsonify({'message': 'Tipo de dato no válido'})
+    conn.commit()
+    conn.close()
+
+    return jsonify({'message': f'Campo {tipo} del usuario {usuario} modificado correctamente'})
+
+
+@app.route('/api/user/erase', methods=['POST', 'OPTIONS'])
+def erase_user():
+    if request.method == 'OPTIONS':
+        response = jsonify()
+        response.headers.add('Access-Control-Allow-Methods', 'POST')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        return response
+
+    data = request.json
+    username = data.get('username')
+
+    # Verificar si el usuario existe
+    existing_user = find_user(username)
+    if not existing_user:
+        return jsonify({'message': 'Usuario no encontrado'})
+
+    # Eliminar el usuario
+    delete_user(username)
+
+    return jsonify({'message': f'Usuario {username} eliminado correctamente'})
+
+
 @app.route('/api/product/create', methods=['POST'])
 def create_product():
     data = request.json
@@ -219,23 +273,19 @@ def upload_file():
     return jsonify({'message': 'Error al subir el archivo'})
 
 
-def eliminar_en_buid_real():
+@app.route('/api/users/all', methods=['GET'])
+def get_all_users():
     conn = get_db_connection('users.db')
     c = conn.cursor()
-    c.execute("SELECT * FROM users")
+    c.execute("SELECT user FROM users")
     rows = c.fetchall()
     conn.close()
 
-    for row in rows:
-        print("Usuario:", row['user'])
-        print("Correo electrónico:", row['email'])
-        print("Contraseña:", row['password'])
-        print("Estado:", row['admin'])
+    users = [row['user'] for row in rows]
+    return jsonify(users)
 
 
 if __name__ == '__main__':
-    eliminar_en_buid_real()
-
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--interactive',
                         action='store_true', help='Run in interactive mode')
