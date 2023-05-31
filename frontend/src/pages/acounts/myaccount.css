@@ -1,20 +1,175 @@
-.go-login-button,
-.go-signup-button {
-  position: absolute;
-  margin-top: 1%;
-  left: 2%;
-  width: 10%;
-  height: auto;
-  background-color: #000;
-  color: #fff;
-  padding: 10px;
-  font-size: 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: rgb(77, 58, 255);
+.BOTONES_sesion{
+    margin-top: 10%; 
 }
 
-.go-signup-button {
-  margin-left: 12%;
-}
+.BOTONES_sesion a {
+    color: white;
+    background-color: rgb(77, 58, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 70px;
+    padding: 0;
+    margin: 2% auto;
+    border: none;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease-in-out;
+    font-size: 150%;
+  }
+  
+  .BOTONES_sesion a:hover {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+  }
+  
+  .BOTONES_sesion a span {
+    margin: 5%;
+    width: 90%;
+  }
+  
+  .title-myaccount-mensaje {
+    margin-top: 3%;
+    color: white; /* Texto blanco */
+    font-family: "Arial Black", sans-serif; /* Fuente estilo carretera o coches */
+    font-size: 36px; /* Tamaño de fuente deseado */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra de texto */
+    text-align: center; /* Centrar el texto */
+  }
+  
+  .title-myaccount-mensaje-noregistrado::after {
+    content: "<- No registrado"; /* Texto adicional después del título */
+    display: inline-block; /* Mostrar en la misma línea */
+    color: rgb(77, 58, 255); /* Color de neón azul */
+    text-shadow: 0 0 10px rgba(77, 58, 255, 0.8); /* Sombra de neón */
+  }
+  .title-myaccount-mensaje-noregistrado::before {
+    content: "No registrado ->"; /* Texto adicional después del título */
+    display: inline-block; /* Mostrar en la misma línea */
+    color: rgb(77, 58, 255); /* Color de neón azul */
+    text-shadow: 0 0 10px rgba(77, 58, 255, 0.8); /* Sombra de neón */
+  }
+
+  .title-myaccount-mensaje.quien-eres{
+    font-size: 22px;
+  }
+  
+  .button-account-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .button-account-grid button {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .button-account-grid button:nth-child(2n) {
+    margin-left: 15px;
+  }
+  
+  .button-account-grid button:nth-child(1n) {
+    margin-right: 15px;
+  }
+  
+  
+  .button-account {
+    background-color: #0099FF;
+    transition: filter 0.3s, transform 0.3s;
+    width: 50%;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 22px;
+    color: #ffffff;
+  }
+  
+  .button-account:hover {
+    transform: scale(1.2);
+  }
+  
+  .button-account.cerrar-sesion{
+    background-color: rgb(250, 86, 64);
+  }
+
+  .button-account.ajustes-cuenta{
+    background-color: rgb(77, 58, 255);
+  }
+
+  .button-account.pagos{
+    background-color: #c3d658;
+  }
+
+  .button-account.seguridad{
+    background-color: #0e0f18;
+  }
+
+  .button-account.admin-second{
+    background-color: rgb(111, 185, 88);
+    border-radius: 10px;
+  }
+  
+  .button-account.admin{
+    background-color: rgb(111, 185, 88);
+    width: 52%;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-left: 24%;
+  }
+
+  .button-account.getback{
+    background-color: rgb(255, 148, 246);
+    width: 52%;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-left: 24%;
+  }
+
+
+  .create-product {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border: 1px solid #000;
+  }
+  
+  .title-myaccount-mensaje {
+    color: #0099ff; /* Azul */
+  }
+  
+  .nombre_producto_input,
+  .precio_input,
+  .descripcion_input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+    
+  .descripcion_input {
+    padding: 10px;
+    width: 95%;
+    height: 150px;
+    margin-bottom: 10px;
+    resize: none; /* Evita la redimensión del textarea */
+  }
+  
+  
+  .button-image-upload {
+    display: flex;
+  }
+  
+  .button-image-upload button{
+    margin-right: 10px;
+  }
+  
+  .button-image-upload button{
+    margin-right: 10px;
+  }
+  textarea::placeholder {
+    white-space: pre-line;
+  }

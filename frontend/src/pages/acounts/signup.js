@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './signup.css';
 import { BarraSuperior } from '../../components/BarraSuperior';
 
 function Signup() {
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,6 +28,7 @@ function Signup() {
 
       if (response.ok) {
         console.log('Datos enviados correctamente');
+        navigate('/login');
       } else {
         console.error('Error al enviar los datos');
       }

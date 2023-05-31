@@ -1,20 +1,23 @@
-import React from 'react';
-import { BarraSuperior } from '../../components/BarraSuperior';
-import { Link } from 'react-router-dom'
-import './myaccount.css'
+import React, { useContext } from "react";
+import { AuthContext } from "./AuthContext";
+import { Registrado } from "./Registrado";
+import { Noregistrado } from "./Noregistrado";
 
+const MyAccount = () => {
+  const { isLoggedIn } = useContext(AuthContext);
+  let elementoA;
 
-function MyAccount() {
+  if (isLoggedIn) {
+    elementoA = <Registrado />;
+  } else {
+    elementoA = <Noregistrado />;
+  }
+
   return (
     <div>
-      <BarraSuperior/>
-      <div className='Botones_incio_sesion'>
-        <Link className="go-login-button" to={'/login'} >Login</Link>
-        <Link className="go-signup-button" to={'/signup'}>Sign Up</Link>
-      </div>
+      {elementoA}
     </div>
-
   );
-}
+};
 
 export default MyAccount;

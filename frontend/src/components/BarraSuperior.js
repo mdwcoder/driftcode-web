@@ -9,10 +9,12 @@ export const BarraSuperior = () => {
     <div id='barrasuperior'>
     <section>
       <div id='logo-inicio'>
+        <Link to="/">
         <img className='logo' src={fotos[0]} alt='logo' />
+        </Link>
       </div>
     </section>
-    <div class="search-box">
+    <div className="search-box">
       <input type="text" placeholder="Search"/>
       <button></button>
     </div>
@@ -22,7 +24,7 @@ export const BarraSuperior = () => {
           <li><Link to='/'>Home</Link></li>
           <li><Link to="/merch">Merch</Link></li>
           <li><Link to="/videos">Videos</Link></li>
-          <li><Link to="/myacount">Acount</Link></li>
+          <li><Link to="/myaccount">Acount</Link></li>
         </ul>
       </nav>
     </header>

@@ -13,11 +13,13 @@ import { E34 } from './pages/models_pages/E34';
 import { E36 } from './pages/models_pages/E36';
 import { E46 } from './pages/models_pages/E46';
 import signup from './pages/acounts/signup';
-import login from './pages/acounts/login'
+import login from './pages/acounts/login';
+import { AuthProvider } from './pages/acounts/AuthContext';
 
 function App() {
   return (
     <BrowserRouter>
+      <AuthProvider>
       <div>
         <Routes>
           <Route path='/signup' Component={signup} />
@@ -27,7 +29,7 @@ function App() {
           <Route path="/shop" Component={shop} />
           <Route path="/merch" Component={merch} />
           <Route path="/videos" Component={Videos} />
-          <Route path="/myacount" Component={MyAccount} />
+          <Route path="/myaccount" Component={MyAccount} />
 
           <Route path="/UNIVERSAL" Component={universal} />
           <Route path="/E30" Component={E30} />
@@ -36,6 +38,7 @@ function App() {
           <Route path="/E46" Component={E46} />
         </Routes>
       </div>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
