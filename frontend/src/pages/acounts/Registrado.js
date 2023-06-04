@@ -14,6 +14,8 @@ export const Registrado = () => {
   const [send_features, setFeatures] = useState("");
   const [send_section, setSection] = useState("");
   const [lista_usuarios, setListaUsers] = useState([]);
+  const [usuarioseleccionado, seleccionarusuario] = useState("");
+  const [accionejecutar, seleccionaraccionejecutar] = useState("");
 
   const createProduct = async () => {
     try {
@@ -33,13 +35,39 @@ export const Registrado = () => {
     }
   };
 
-  const eliminarUsuario = async () => {
+  const eliminarUsuario = async (user = actualUser) => {
     const response = await axios.post("http://127.0.0.1:5000/api/user/erase", {
-        'username': actualUser,
+        'username': user,
       });
     console.log("Respuesta del servidor:", response.data);
     logout();
   };
+
+  const hacer_administrador = async (user) => {
+    const response = await axios.post("http://127.0.0.1:5000/api/user/admin", {
+        'username': user,
+      });
+    console.log("Respuesta del servidor:", response.data);
+  }
+
+  const degradar_usuario = async (user) => {
+    const response = await axios.post("http://127.0.0.1:5000/api/user/degrade", {
+        'username': user,
+      });
+    console.log("Respuesta del servidor:", response.data);
+  }
+
+  const ejecutar_accion = async () => {
+    if (accionejecutar === "Eliminar") {
+      eliminarUsuario(usuarioseleccionado);
+    } else if (accionejecutar === "Ascender a administrador"){
+      hacer_administrador(usuarioseleccionado);
+    } else if (accionejecutar === "Degradar a usuario"){
+      degradar_usuario(usuarioseleccionado);
+    } else if (accionejecutar === "Banear"){
+      console.log("Banear");
+    }
+  }
 
   const obtener_todos_los_usuarios = async () => {
     const response = await axios.get("http://127.0.0.1:5000/api/users/all");
@@ -64,6 +92,14 @@ export const Registrado = () => {
 
   const handleSectionChange = (event) => {
     setSection(event.target.value);
+  }
+
+  const handleUserChange = (event) => {
+    seleccionarusuario(event.target.value);
+  }
+
+  const handleAccionChange = (event) => {
+    seleccionaraccionejecutar(event.target.value);
   }
 
   const [actualform, setActualForm] = useState('mainform');
@@ -249,17 +285,43 @@ export const Registrado = () => {
   const administracion_usuarios = (
     <div>
       <h2 className="title-myaccount-mensaje quien-eres">Gestión de usuarios</h2>
-      <div className="button-image-upload">
-        <input className="nombre_usuario_input" placeholder="Nombre de usuario"/>
-        <select>
+      <div className="button-image-upload" style={{ margin: '0 auto', backgroundColor: 'rgba(255, 255, 255, 0.5)', width: '50%' }}>
+        <select
+          onAbort={handleUserChange}
+          className="nombre_usuario_input"
+          placeholder="Nombre de usuario"
+          style={{
+            background : 'rgba(255, 255, 255, 0.5)',
+            border: 'none',
+            borderBottom: '1px solid gray',
+            fontSize: '16px',
+            padding: '20px',
+            width: '100%',
+          }}>
+          {lista_usuarios.map((usuario, index) => (
+            <option key={index}>{usuario}</option>
+          ))}
+        </select>
+        <select
+          onChange={handleAccionChange}
+          style={{
+            background : 'rgba(255, 255, 255, 0.5)',
+            border: 'none',
+            borderBottom: '1px solid gray',
+            fontSize: '16px',
+            padding: '20px',
+            width: '100%',
+          }}
+        >
           <option>Eliminar</option>
           <option>Banear</option>
           <option>Degradar a usuario</option>
           <option>Ascender a administrador</option>
         </select>
       </div>
+
       <div className="button-account-grid">
-        <button className="button-account admin-second">Ejecutar</button>
+        <button className="button-account admin-second" onClick={ejecutar_accion}>Ejecutar</button>
         {getback_button}
       </div>
     </div>

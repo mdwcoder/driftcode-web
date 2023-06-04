@@ -15,6 +15,7 @@ import { E46 } from './pages/models_pages/E46';
 import signup from './pages/acounts/signup';
 import login from './pages/acounts/login';
 import { AuthProvider } from './pages/acounts/AuthContext';
+import { ProductoIndividual } from './pages/ProductoIndividual';
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
           <Route path='/E34' Component={E34} />
           <Route path='/E36' Component={E36} />
           <Route path="/E46" Component={E46} />
+
+          <Route path="/pruebas" Component={ProductoIndividual} />
         </Routes>
       </div>
       </AuthProvider>

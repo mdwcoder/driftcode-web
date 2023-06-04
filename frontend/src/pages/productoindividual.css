@@ -1,0 +1,10 @@
+.content_producto_individual{
+    display: flex;
+    margin-top: 50px;
+}
+ 
+  .content_producto_individual > * {
+    margin-right: 20px;
+    margin-left: 50px;
+  }
+  

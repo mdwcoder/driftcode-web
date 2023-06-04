@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
   const [actualPassword, setActualPassword] = useState('');
   const [mainImage, setmainImage] = useState('');
   const [secondariImages, setSecondariImages] = useState([]);
+  const [products, setProducts] = useState([]);
 
   // Al cargar el componente, verifica si hay datos de sesión almacenados en el navegador
   useEffect(() => {
@@ -88,6 +89,8 @@ const AuthProvider = ({ children }) => {
         setmainImage,
         secondariImages,
         setSecondariImages,
+        products,
+        setProducts,
         login,
         logout
       }}

@@ -51,14 +51,6 @@ def delete_product(name):
     conn.close()
 
 
-def delete_all_users():
-    conn = get_db_connection('products.db')
-    c = conn.cursor()
-    c.execute("DELETE FROM products")
-    conn.commit()
-    conn.close()
-
-
 def find_user_by_email(email):
     conn = get_db_connection('users.db')
     c = conn.cursor()
@@ -83,6 +75,34 @@ def make_admin(username):
     c.execute("UPDATE users SET admin = 1 WHERE user = ?", (username,))
     conn.commit()
     conn.close()
+
+
+@app.route('/api/user/admin', methods=['POST'])
+def make_admin_routed():
+    data = request.json
+    username = data.get('user')
+
+    conn = get_db_connection('users.db')
+    c = conn.cursor()
+    c.execute("UPDATE users SET admin = 1 WHERE user = ?", (username,))
+    conn.commit()
+    conn.close()
+
+    return jsonify({'message': 'Usuario promovido a administrador exitosamente'})
+
+
+@app.route('/api/user/degrade', methods=['POST'])
+def degrade_to_user():
+    data = request.json
+    username = data.get('user')
+
+    conn = get_db_connection('users.db')
+    c = conn.cursor()
+    c.execute("UPDATE users SET admin = 0 WHERE user = ?", (username,))
+    conn.commit()
+    conn.close()
+
+    return jsonify({'message': 'Usuario degradado a usuario estándar exitosamente'})
 
 
 @app.route('/api/login', methods=['POST', 'OPTIONS'])
@@ -283,6 +303,35 @@ def get_all_users():
 
     users = [row['user'] for row in rows]
     return jsonify(users)
+
+
+# Terminar el return de los objetos --> productos
+@app.route('/api/products/selection', methods=['GET'])
+def get_product_section():
+    section = request.args.get('section')
+
+    conn = get_db_connection('products.db')
+    c = conn.cursor()
+
+    c.execute("SELECT * FROM products WHERE section=?", (section,))
+    rows = c.fetchall()
+
+    products = []
+    for row in rows:
+        product = {
+            'name': row[1],
+            'price': row[2],
+            'description': row[3],
+            'features': row[4],
+            'main_image': row[5],
+            'secondary_images': row[6],
+            'section': row[7]
+        }
+        products.append(product)
+
+    conn.close()
+
+    return jsonify({'products': products})
 
 
 if __name__ == '__main__':
