@@ -18,7 +18,7 @@ const ImagesUploader = ({ msg }) => {
     formData.append('file', file);
   
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/upload/all', formData, {
+      const response = await axios.post('http://127.0.0.1:5000/api/upload/more', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

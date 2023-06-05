@@ -5,18 +5,12 @@ import './models_pages/general.css'
 import NeonSquare from './models_pages/NeonSquare'
 
 export const merch = () => {
-  const carpetaContext = require.context(
-    './../materiales/shop/merch',
-    true,
-    /^\.\/(?!.*\.(svg|txt|png|jpeg)).*$/
-  );
-
     return (
         <div>
             <BarraSuperior/>
             <div className='NeonSquare'><NeonSquare name={'merch => SHOP'}/></div>
             <div className='shop'>
-              <Shop carpetaContext={carpetaContext} /></div>
+              <Shop section={'merch'} /></div>
         </div>
       )
     }

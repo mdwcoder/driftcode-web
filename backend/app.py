@@ -255,7 +255,7 @@ def upload_files():
     if 'files' not in request.files:
         return jsonify({'message': 'No se encontraron archivos en la solicitud'})
 
-    files = request.files.getlist('files')
+    files = request.files.get('files')
     filenames = []
 
     for file in files:
@@ -277,7 +277,7 @@ def upload_file():
     if 'file' not in request.files:
         return jsonify({'message': 'No se encontró ningún archivo en la solicitud'})
 
-    file = request.files['file']
+    file = request.files.get['file']
 
     if file.filename == '':
         return jsonify({'message': 'No se seleccionó ningún archivo'})

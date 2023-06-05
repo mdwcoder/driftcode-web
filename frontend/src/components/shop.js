@@ -1,39 +1,47 @@
-import React from 'react'
-import './Productos.css'
+import React from 'react';
+import './Productos.css';
 import { Producto } from './Producto';
+import axios from 'axios';
 
-const Shop = ({carpetaContext}) => {
-      const modelosimg = carpetaContext.keys().map((ruta) => {
-        const imagen = carpetaContext(ruta);
-        return imagen.default || imagen;
-      }).filter((imagen) => !imagen.includes('_'));
+const Shop = ({ section }) => {
+
+  const buscar = async () => {
+    const nombreProducto = document.getElementById('nombreProducto');
+    if (nombreProducto) {
+
+      const response = await axios.get("http://127.0.0.1:5000/api/products/selection", {
+        'section': section,
+      });
+      const products = response.data;
       
-      const modelosname = carpetaContext.keys().map((ruta) => {
-        const carpetas = ruta.split('/');
-        const nombreImagen = carpetas[carpetas.length - 1].replace(/\.[^.]+$/, '');
-        return nombreImagen;
-      }).filter((imagen) => !imagen.includes('_'));
-    
-    
-    const Descripciones = ["", "", "", "", "", ""]; // Prueba, cambiar a leer txt
-    const Nproductos = modelosname.length; 
+      return products;
+    }
+  }
+  const products = buscar();
+  const products_name = products.name;
+  const products_description = products.description;
+  const products_images = products.main_image;
 
-    const productos = Array.from({ length: Nproductos }, (_, index) => (
-        <Producto
-          className='producto_individual'
-          key={index}
-          nombre={modelosname[index]}
-          descripcion={Descripciones[index]}
-          imagen={modelosimg[index]}
-        />
-      ));
+  const Nproductos = products_name.length;
+
+  const productos = Array.from({ length: Nproductos }, (_, index) => (
+    <Producto
+      className='producto_individual'
+      key={index}
+      nombre={products_name[index]}
+      descripcion={products_description[index]}
+      imagen={products_images[index]}
+    />
+  ));
 
   return (
     <div className='shop-page'>
-        <div className='product-grid'>
-            {productos}
-        </div>
+      <div className='product-grid'>
+        {productos}
+      </div>
+      <button onClick={buscar}>Buscar</button>
     </div>
-  )
-}
+  );
+};
+
 export default Shop;
