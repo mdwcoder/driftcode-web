@@ -7,7 +7,7 @@ import ImageUploader from "../../components/ImageUploader";
 import ImagesUploader from "../../components/ImagesUploader";
 
 export const Registrado = () => {
-  const { isAdmin, actualUser, logout, mainImage, secondariImages} = useContext(AuthContext);
+  const { isAdmin, actualUser, logout, mainImage, setMainImage, setSecondariImages, secondariImages} = useContext(AuthContext);
   const [send_name, setName] = useState("");
   const [send_price, setPrice] = useState("");
   const [send_description, setDescription] = useState("");
@@ -33,6 +33,8 @@ export const Registrado = () => {
     } catch (error) {
       console.error("Error al crear el producto:", error);
     }
+    setMainImage("");
+    setSecondariImages([]);
   };
 
   const eliminarUsuario = async (user = actualUser) => {

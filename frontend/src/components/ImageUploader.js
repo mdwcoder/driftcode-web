@@ -3,7 +3,7 @@ import { AuthContext } from '../pages/acounts/AuthContext';
 import axios from 'axios';
 
 const ImageUploader = ({ msg }) => {
-  const { setmainImage } = useContext(AuthContext);
+  const { setMainImage } = useContext(AuthContext);
   const inputRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -11,7 +11,7 @@ const ImageUploader = ({ msg }) => {
   };
 
   const handleFileChange = async (event) => {
-    const file = event.target.files[-1];
+    const file = event.target.files[0];
   
     // Crea un objeto FormData para enviar el archivo al servidor
     const formData = new FormData();
@@ -28,7 +28,8 @@ const ImageUploader = ({ msg }) => {
       const imageName = response.data.filename;
   
       // Guarda el nombre de la imagen en el estado mainImage
-      setmainImage(imageName);
+      setMainImage(imageName);
+      console.log(imageName);
   
       // Maneja la respuesta del servidor
       console.log('Respuesta del servidor:', response.data);

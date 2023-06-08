@@ -238,7 +238,7 @@ def create_product():
     features = data.get('features')
     section = data.get('section')
     main_image = data.get('main_image')
-    secondary_images = data.getlist('secondary_images')
+    secondary_images = data.get('secondary_images')
 
     conn = get_db_connection('products.db')
     c = conn.cursor()
@@ -255,7 +255,7 @@ def upload_files():
     if 'files' not in request.files:
         return jsonify({'message': 'No se encontraron archivos en la solicitud'})
 
-    files = request.files.get('files')
+    files = request.files.getlist('files')
     filenames = []
 
     for file in files:
@@ -277,7 +277,7 @@ def upload_file():
     if 'file' not in request.files:
         return jsonify({'message': 'No se encontró ningún archivo en la solicitud'})
 
-    file = request.files.get['file']
+    file = request.files.get('file')
 
     if file.filename == '':
         return jsonify({'message': 'No se seleccionó ningún archivo'})

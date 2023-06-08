@@ -3,7 +3,7 @@ import { AuthContext } from '../pages/acounts/AuthContext';
 import axios from 'axios';
 
 const ImagesUploader = ({ msg }) => {
-  const { setSecondariImages } = useContext(AuthContext);
+  const { setSecondariImages, secondariImages } = useContext(AuthContext);
   const inputRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -11,11 +11,13 @@ const ImagesUploader = ({ msg }) => {
   };
 
   const handleFileChange = async (event) => {
-    const file = event.target.files;
+    const files = event.target.files;
   
-    // Crea un objeto FormData para enviar el archivo al servidor
+    // Crea un objeto FormData para enviar los archivos al servidor
     const formData = new FormData();
-    formData.append('file', file);
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i], files[i].name);
+    }
   
     try {
       const response = await axios.post('http://127.0.0.1:5000/api/upload/more', formData, {
@@ -24,17 +26,17 @@ const ImagesUploader = ({ msg }) => {
         },
       });
   
- 
-      // Guarda el nombre de la imagen en el estado mainImage
-      setSecondariImages(response.data.filenames);
-  
+      // Guarda los nombres de las imágenes en el estado mainImage
+      setSecondariImages(secondariImages.concat(response.data.filenames));
+      console.log(response.data.filenames);
       // Maneja la respuesta del servidor
       console.log('Respuesta del servidor:', response.data);
     } catch (error) {
       // Maneja los errores de la solicitud
-      console.error('Error al subir el archivo:', error);
+      console.error('Error al subir los archivos:', error);
     }
   };
+  
 
   return (
     <div className="images-uploader">
