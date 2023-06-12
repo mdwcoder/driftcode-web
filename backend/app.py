@@ -90,6 +90,21 @@ def make_admin_routed():
 
     return jsonify({'message': 'Usuario promovido a administrador exitosamente'})
 
+def print_all_users():
+    conn = get_db_connection('users.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM users")
+    rows = c.fetchall()
+    conn.close()
+
+    for row in rows:
+        print("Usuario:", row['user'])
+        print("Email:", row['email'])
+        print("Contraseña:", row['password'])
+        print("Administrador:", row['admin'])
+        print("---")
+
+
 
 @app.route('/api/user/degrade', methods=['POST'])
 def degrade_to_user():
@@ -339,6 +354,7 @@ if __name__ == '__main__':
     parser.add_argument('-i', '--interactive',
                         action='store_true', help='Run in interactive mode')
     args = parser.parse_args()
+    print_all_users()
 
     if args.interactive:
         username = input(

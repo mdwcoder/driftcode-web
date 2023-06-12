@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Importar Css
 import './App.css'; // Ruta al archivo CSS
 import { home } from './pages/home';
-import { shop } from './pages/shop';
 import { merch } from './pages/merch';
 import { Videos } from './pages/Videos';
 import { universal } from './pages/models_pages/universal';
@@ -27,7 +26,6 @@ function App() {
           <Route path='/login' Component={login} />
 
           <Route path="/" Component={home} />
-          <Route path="/shop" Component={shop} />
           <Route path="/merch" Component={merch} />
           <Route path="/videos" Component={Videos} />
           <Route path="/myaccount" Component={MyAccount} />
