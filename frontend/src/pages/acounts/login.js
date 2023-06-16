@@ -15,16 +15,16 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const isEmail = validateEmail(userEmail); // Validar si es un correo electrónico
 
       const response = await axios.post('http://127.0.0.1:5000/api/login', {
-        [isEmail ? 'email' : 'user']: userEmail, // Usar 'email' o 'user' según la validación
+        'userform': userEmail, // Usar 'email' o 'user' según la validación
         password,
       });
       setMessage(response.data.message);
 
       if (response.data.Authenticated === true) {
         setLoggedIn(true);
+        navigate('/myaccount'); // Redirecciona al componente MyAccount
       } else {
         setLoggedIn(false);
       }
@@ -41,18 +41,10 @@ function Login() {
       console.log(response.data.user);
       console.log(response.data);
 
-      navigate('/myaccount'); // Redirecciona al componente MyAccount
     } catch (error) {
       setMessage('Error al iniciar sesión');
       console.error(error);
     }
-  };
-
-  // Función para validar si es un correo electrónico
-  const validateEmail = (value) => {
-    // Expresión regular para validar un correo electrónico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
   };
 
   return (

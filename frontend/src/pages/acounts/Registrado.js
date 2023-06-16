@@ -94,6 +94,7 @@ export const Registrado = () => {
 
   const handleSectionChange = (event) => {
     setSection(event.target.value);
+    console.log(event.target.value);
   }
 
   const handleUserChange = (event) => {
@@ -103,6 +104,14 @@ export const Registrado = () => {
   const handleAccionChange = (event) => {
     seleccionaraccionejecutar(event.target.value);
   }
+
+  const printSelectedSection = () => {
+    const selectElement = document.getElementById("sectionSelect");
+    const selectedOption = selectElement.value;
+    setSection(selectedOption)
+    console.log(selectedOption);
+  }
+  
 
   const [actualform, setActualForm] = useState('mainform');
 
@@ -135,6 +144,7 @@ export const Registrado = () => {
 
   const create_product_fn = () => {
     setActualForm('createproduct');
+    printSelectedSection();
   }
 
   const gestion_usuarios_fn = () => {
@@ -267,7 +277,8 @@ export const Registrado = () => {
       <div className="button-image-upload">
         <ImageUploader msg={"Imagen principal"} />
         <ImagesUploader msg={"Imagenes secundarias"} />
-        <select onChange={handleSectionChange}>
+        <select id="sectionSelect" onChange={handleSectionChange}>
+          <option value={"Merch"}>Merch</option>
           <option value={"E30"}>E30</option>
           <option value={"E34"}>E34</option>
           <option value={"E36"}>E36</option>

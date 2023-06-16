@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
-import os
+import os, re
 import argparse
 from werkzeug.utils import secure_filename
 
@@ -119,9 +119,62 @@ def degrade_to_user():
 
     return jsonify({'message': 'Usuario degradado a usuario estándar exitosamente'})
 
+def print_all_products():
+    conn = get_db_connection('products.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM products")
+    rows = c.fetchall()
+    conn.close()
+
+    for row in rows:
+        print("Nombre:", row['name'])
+        print("Precio:", row['price'])
+        print("Descripción:", row['description'])
+        print("Características:", row['features'])
+        print("Imagen principal:", row['main_image'])
+        print("Imágenes secundarias:", row['secondary_images'])
+        print("Sección:", row['section'])
+        print("---")
+
+@app.route('/api/printproducts', methods=['GET'])
+def print_products():
+    print_all_products()
+    return jsonify({'message': 'Productos impresos en la consola'})
+
+
+@app.route('/api/product/delete', methods=['DELETE'])
+def delete_product_by_name():
+    data = request.get_json()
+    name = data.get('name')
+
+    conn = get_db_connection('products.db')
+    c = conn.cursor()
+
+    c.execute("DELETE FROM products WHERE name=?", (name,))
+    conn.commit()
+    conn.close()
+
+    return jsonify({'message': f'Producto {name} eliminado exitosamente'})
+
+
+@app.route('/api/product/delete/all', methods=['GET'])
+def delete_all_products():
+    conn = get_db_connection('products.db')
+    c = conn.cursor()
+
+    c.execute("DELETE FROM products")
+    conn.commit()
+    conn.close()
+
+    return jsonify({'message': 'Todos los productos han sido eliminados'})
+
 
 @app.route('/api/login', methods=['POST', 'OPTIONS'])
 def login():
+    def validate_email(email):
+        # Expresión regular para validar un correo electrónico
+        email_regex = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
+        return re.match(email_regex, email) is not None
     if request.method == 'OPTIONS':
         response = jsonify()
         response.headers.add('Access-Control-Allow-Methods', 'POST')
@@ -129,17 +182,15 @@ def login():
         return response
 
     data = request.json
-    usermail = data.get('email')
+    userform = data.get('userform') 
     password = data.get('password')
 
-    user = find_user_by_email(usermail)
-
-    print(f"Usuario: {user['user']}")
-    print(f"Correo electrónico: {user['email']}")
-    print(f"Contraseña: {user['password']}")
+    if validate_email(userform):
+        user = find_user_by_email(userform)  # Utiliza el campo 'email' para buscar el usuario
+    else:
+        user = find_user(userform)  # Si no se encuentra por email, busca por usuario
 
     if user and user['password'] == password:
-        print(True)
         return {
             'message': 'Login correcto',
             'Authenticated': True,
@@ -149,12 +200,12 @@ def login():
             'password': user['password']
         }
     else:
-        print(False)
         return {
             'message': 'Login incorrecto',
             'Authenticated': False,
             'admin': False
         }
+
 
 
 @app.route('/api/registro', methods=['POST', 'OPTIONS'])
@@ -355,6 +406,7 @@ if __name__ == '__main__':
                         action='store_true', help='Run in interactive mode')
     args = parser.parse_args()
     print_all_users()
+    print_all_products()
 
     if args.interactive:
         username = input(
