@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'; // Ruta al archivo CSS
 import { home } from './pages/home';
 import { merch } from './pages/merch';
-import { Videos } from './pages/Videos';
+import { Videos } from './pages/videos';
 import { universal } from './pages/models_pages/universal';
 import MyAccount from './pages/acounts/myaccount';
 import { E30 } from './pages/models_pages/E30';
